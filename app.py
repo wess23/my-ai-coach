@@ -8,7 +8,7 @@ weight = st.number_input("الوزن (كغ)", min_value=40)
 height = st.number_input("الطول (سم)", min_value=100)
 
 if st.button("أعطني الخطة"):
-    client = genai.Client(api_key="AIzaSyBke1UDZe03kCP324MyKFjHicAhjzBbDvU")
+    client = genai.Client(api_key = st.secrets["GEMINI_API_KEY"])
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=f"اعطني خطة فقدان وزن لشاب جزائري وزنه {weight} وطوله {height}. أجب بالدارجة الجزائرية."
